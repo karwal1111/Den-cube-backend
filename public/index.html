@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Den & Cube-Lifestyle Goods</title>
+  <link rel="icon" href="images/logo2.jpeg" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes slide-up {
+      0% {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body class="h-screen w-screen overflow-hidden font-sans text-white">
+
+  <!-- Panels -->
+  <div class="flex h-screen w-screen">
+
+    <!-- Panel 1 -->
+    <div onclick="openOverlay('images/pow4.jpeg')" 
+         class="w-1/4 relative bg-white hover:bg-[url('images/pow4.jpeg')] hover:bg-cover hover:bg-center transition-all duration-500 cursor-pointer">
+      <img src="images/logo1.jpeg" alt="Logo" class="absolute top-5 left-5 h-10">
+      <div class="absolute bottom-5 w-full text-center text-3xl font-semibold uppercase">Indoor Sculptures</div>
+    </div>
+
+    <!-- Panel 2 -->
+    <div onclick="openOverlay('images/pow9.jpeg')" 
+         class="w-1/4 relative bg-white hover:bg-[url('images/pow9.jpeg')] hover:bg-cover hover:bg-center transition-all duration-500 cursor-pointer">
+      <div class="absolute top-5 text-center w-full text-3xl">Where Form<br>and Function Unite</div>
+      <div class="absolute bottom-5 w-full text-center text-3xl font-semibold uppercase">Portraits</div>
+    </div>
+
+    <!-- Panel 3 -->
+    <div onclick="openOverlay('images/pow12.jpeg')" 
+         class="w-1/4 relative bg-white hover:bg-[url('images/pow12.jpeg')] hover:bg-cover hover:bg-center transition-all duration-500 cursor-pointer">
+      <div class="relative h-12 overflow-hidden"></div>
+      <div class="absolute bottom-5 w-full text-center text-3xl font-semibold uppercase">Ceramics</div>
+    </div>
+
+    <!-- Panel 4 -->
+    <div onclick="openOverlay('images/pow11.jpeg')" 
+         class="w-1/4 relative bg-white hover:bg-[url('images/pow11.jpeg')] hover:bg-cover hover:bg-center transition-all duration-500 cursor-pointer">
+      <div class="absolute bottom-5 w-full text-center text-3xl font-semibold uppercase">Exotic Sculptures</div>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black hidden items-center justify-center flex-col z-50">
+    <!-- Fullscreen Clicked Image -->
+    <img id="fullImg" src="" class="absolute inset-0 w-full h-full object-cover z-0" />
+
+    <!-- Text Content -->
+    <div class="absolute top-24 right-10 w-[30%] z-10 animate-slide-up">
+      <h1 class="text-4xl font-bold mb-4">Timeless Elegance in Clay</h1>
+      <p class="text-base leading-relaxed">
+        Discover handcrafted luxury ceramics where tradition meets modern design. Each piece is a celebration of form, texture, and refined craftsmanship—made to elevate your living spaces with soulful sophistication.
+      </p>
+    </div>
+
+    <!-- Close Button -->
+    <span class="absolute top-5 right-10 text-white text-4xl font-bold cursor-pointer z-10" onclick="closeOverlay()">×</span>
+  </div>
+
+  <!-- 🧠 JS Functions -->
+  <script>
+    function openOverlay(imagePath) {
+      const overlay = document.getElementById('overlay');
+      const fullImg = document.getElementById('fullImg');
+      fullImg.src = imagePath;
+      overlay.classList.remove('hidden');
+    }
+
+    function closeOverlay() {
+      const overlay = document.getElementById('overlay');
+      const fullImg = document.getElementById('fullImg');
+      overlay.classList.add('hidden');
+      fullImg.src = "";
+    }
+  </script>
+
+</body>
+</html>
